@@ -1,19 +1,7 @@
-// duration, deley
+// アニメーションでよく使う表現の指定について
 
-// // duration => アニメーションにかかる時間
-// // durationの設定は、第二引数に設定するか、オブジェクトに書くか。
-// gsap.to(".box", {
-//   x: "20rem",
-//   duration: 10
-// })
+// ４つのtransform CSSプロパティと、
+// その他のCSSプロパティの指定について。
 
-// gsap.to(".box", 10, {
-//   x: "20rem",
-// })
-
-
-// deley => アニメーションが始まるまでのどれくら延滞するか。
-gsap.to(".box", 1, {
-  x: "20rem",
-  delay: 1
-})
+// transformOrigin（変化の起点）について
+// opacityとautoAlphaについて
