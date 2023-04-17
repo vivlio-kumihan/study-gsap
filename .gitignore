@@ -9,6 +9,11 @@
 .AppleDouble
 .LSOverride
 
+# prv
+src/
+tmp/
+.gitignore
+
 # Icon must end with two \r
 Icon
 
