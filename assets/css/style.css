@@ -14,27 +14,111 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  max-width: 690px;
   height: 100vh;
   margin: 0 auto;
 }
 
-.box {
-  width: 20rem;
-  height: 20rem;
-  background-color: #777;
-  border-radius: .3rem;
+.container > #articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
 }
 
-figure {
+#articles .header  {
   position: relative;
 }
 
-figure > figcaption {
+#articles > .wrapper {
+  border: 1px solid #333;
+}
+/* object系の配置法 */
+/* #articles picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+#articles img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  transform: scale(1.52);
+} */
+
+/* background系の配置法 */
+#articles picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#articles > .wrapper:nth-of-type(1) picture {
+  background-image: url(../img/bird-341898_640.jpg);
+}
+#articles > .wrapper:nth-of-type(2) picture {
+  background-image: url(../img/cover.jpg);
+}
+#articles > .wrapper:nth-of-type(3) picture {
+  background-image: url(../img/bird-3732867_640.jpg);
+}
+#articles > .wrapper:nth-of-type(4) picture {
+  background-image: url(../img/owl-1576572_640.jpg);
+}
+#articles > .wrapper:nth-of-type(5) picture {
+  background-image: url(../img/p2.jpg);
+}
+#articles > .wrapper:nth-of-type(6) picture {
+  background-image: url(../img/bald-eagle-2715461_640.jpg);
+}
+
+#articles h2 {
   position: absolute;
-  top: 5rem;
-  left: -12rem;
-  font-size: 3rem;
-  font-family: 'New Tegomin', serif;;
-  text-align: right;
+  top: 92.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  font-size: 1.15;
+  font-weight: 700;
+  letter-spacing: .25rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #333;
+}
+
+.spacing-nomalize {
+  letter-spacing: 0;
+}
+
+#articles dd {
+  margin-top: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  line-height: 1.5;
+}
+
+
+.container > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container > ul >li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  color: #aaa;
+  background-color: #aaa;
+}
+.container > ul >li:not(:first-of-type) {
+  margin-left: 1rem;
 }
