@@ -1,44 +1,44 @@
-// timeline()関数 => 複数のアニメーションを時間軸に沿ってコントロールする方法
+// // timeline()関数 => 複数のアニメーションを時間軸に沿ってコントロールする方法
 
-// timeline()関数
-// タイムラインのインスタンスを生成させる
-const tl = gsap.timeline()
+// // timeline()関数
+// // タイムラインのインスタンスを生成させる
+// const tl = gsap.timeline()
 
-// インスタンス内でオブジェクトを順番に指定しながらタイムラインを進める
-// 上下二つの箱　一連の横方向への（1秒間で移動する）動き
-tl.to("figure:nth-of-type(1)", 1, {
-  x: "10rem"
-})
-.to("figure:nth-of-type(2)", 1, {
-  x: "10rem",
-  rotation: "180deg"
-})
+// // インスタンス内でオブジェクトを順番に指定しながらタイムラインを進める
+// // 上下二つの箱　一連の横方向への（1秒間で移動する）動き
+// tl.to("figure:nth-of-type(1)", 1, {
+//   x: "10rem"
+// })
+// .to("figure:nth-of-type(2)", 1, {
+//   x: "10rem",
+//   rotation: "180deg"
+// })
 
-// 帰りの動き
-.to("figure:nth-of-type(1)", 1, {
-  x: "0rem"
-})
-.to("figure:nth-of-type(2)", 1, {
-  x: "0rem",
-  rotation: "0deg"
-}).repeat(-1)
-
-
-
-// // keyframs属性　その1
-// // keyframs属性にさまざまな動きを『オブジェクト』で記述する。
-// // 特に、X軸、Y軸への動きを配列で指定することができる。
-// gsap.to("figure", 5, {
-//   keyframes: {
-//     x: [0, "20rem", "20rem", 0, 0],
-//     y: [0, 0, "20rem", "20rem", 0],
-
-//     // 一連の動き全体でのease
-//     // ease: "bounce.in",
-//     // 一辺ごとのease
-//     easeEach: "bounce.in",
-//   }
+// // 帰りの動き
+// .to("figure:nth-of-type(1)", 1, {
+//   x: "0rem"
+// })
+// .to("figure:nth-of-type(2)", 1, {
+//   x: "0rem",
+//   rotation: "0deg"
 // }).repeat(-1)
+
+
+
+// keyframs属性　その1
+// keyframs属性にさまざまな動きを『オブジェクト』で記述する。
+// 特に、X軸、Y軸への動きを配列で指定することができる。
+gsap.to("figure", 5, {
+  keyframes: {
+    x: [0, "20rem", "20rem", 0, 0],
+    y: [0, 0, "20rem", "20rem", 0],
+
+    // 一連の動き全体でのease
+    // ease: "bounce.in",
+    // 一辺ごとのease
+    easeEach: "bounce.in",
+  }
+}).repeat(-1)
 
 
 
