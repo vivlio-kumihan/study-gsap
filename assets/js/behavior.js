@@ -24,36 +24,35 @@
 // }).repeat(-1)
 
 
+// // keyframs属性 => アニメーションを時間軸に沿ってコントロールする    
+// // keyframs属性　その1
+// // keyframs属性にさまざまな動きを『オブジェクト』で記述する。
+// // 特に、X軸、Y軸への動きを配列で指定することができる。
+// gsap.to("figure", 5, {
+//   keyframes: {
+//     x: [0, "20rem", "20rem", 0, 0],
+//     y: [0, 0, "20rem", "20rem", 0],
 
-// keyframs属性　その1
-// keyframs属性にさまざまな動きを『オブジェクト』で記述する。
-// 特に、X軸、Y軸への動きを配列で指定することができる。
-gsap.to("figure", 5, {
-  keyframes: {
-    x: [0, "20rem", "20rem", 0, 0],
-    y: [0, 0, "20rem", "20rem", 0],
-
-    // 一連の動き全体でのease
-    // ease: "bounce.in",
-    // 一辺ごとのease
-    easeEach: "bounce.in",
-  }
-}).repeat(-1)
-
-
-
-// // keyframs属性　その2
-// // keyframs属性にさまざまな動きを『配列』で記述する。
-// // 各動きを現す値はオブジェクト。
-// gsap.to("figure", {
-//   keyframes: [
-//     { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
-//     { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
-//     { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
-//     { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
-//   ]
+//     // 一連の動き全体でのease
+//     // ease: "bounce.in",
+//     // 一辺ごとのease
+//     easeEach: "bounce.in",
+//   }
 // }).repeat(-1)
 
+
+
+// keyframs属性　その2
+// keyframs属性にさまざまな動きを『配列』で記述する。
+// 各動きを現す値はオブジェクト。
+gsap.to("figure", {
+  keyframes: [
+    { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
+    { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
+    { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
+    { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
+  ]
+}).repeat(-1)
 
 
 // // keyframs属性　その3
