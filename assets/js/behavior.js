@@ -42,27 +42,27 @@
 
 
 
-// keyframs属性　その2
-// keyframs属性にさまざまな動きを『配列』で記述する。
-// 各動きを現す値はオブジェクト。
-gsap.to("figure", {
-  keyframes: [
-    { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
-    { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
-    { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
-    { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
-  ]
-}).repeat(-1)
-
-
-// // keyframs属性　その3
-// // keyframs属性にさまざまな動きを『オブジェクト』で記述する。
-// // durationをパーセンテージで指定できる。が、『その2』の方が感覚的に動きを把握しやすい。
-// gsap.to("figure", 10, {
-//   keyframes: {
-//     "10%": { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut" },
-//     "30%": { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
-//     "50%": { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut" },
-//     "90%": { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
-//   }
+// // keyframs属性　その2
+// // keyframs属性にさまざまな動きを『配列』で記述する。
+// // 各動きを現す値はオブジェクト。
+// gsap.to("figure", {
+//   keyframes: [
+//     { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
+//     { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
+//     { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut", duration: 1 },
+//     { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut", duration: 3 },
+//   ]
 // }).repeat(-1)
+
+
+// keyframs属性　その3
+// keyframs属性にさまざまな動きを『オブジェクト』で記述する。
+// durationをパーセンテージで指定できる。が、『その2』の方が感覚的に動きを把握しやすい。
+gsap.to("figure", 10, {
+  keyframes: {
+    "10%": { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut" },
+    "30%": { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
+    "50%": { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut" },
+    "90%": { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
+  }
+}).repeat(-1)
