@@ -1,27 +1,57 @@
 // // timeline()関数 => 複数のアニメーションを時間軸に沿ってコントロールする方法
 
-// // timeline()関数
-// // タイムラインのインスタンスを生成させる
-// const tl = gsap.timeline()
+// timeline
 
-// // インスタンス内でオブジェクトを順番に指定しながらタイムラインを進める
-// // 上下二つの箱　一連の横方向への（1秒間で移動する）動き
-// tl.to("figure:nth-of-type(1)", 1, {
-//   x: "10rem"
-// })
-// .to("figure:nth-of-type(2)", 1, {
-//   x: "10rem",
-//   rotation: "180deg"
+// // 1個目の要素に対して、1秒かけて、X軸方向に200px動かす。
+// // 複数の要素に関連した動きを重ねていく場合に煩雑になる。
+// // 解決方法としてtimelineがある。
+// // 例
+// gsap.to("figure:nth-of-type(1)", 1, {
+//   x: 200
 // })
 
-// // 帰りの動き
-// .to("figure:nth-of-type(1)", 1, {
-//   x: "0rem"
+// gsap.to("figure:nth-of-type(2)", 1, {
+//   x: 200,
+//   delay: 1
 // })
-// .to("figure:nth-of-type(2)", 1, {
-//   x: "0rem",
-//   rotation: "0deg"
-// }).repeat(-1)
+
+// gsap.to("figure:nth-of-type(1)", 1, {
+//   x: 0,
+//   delay: 2
+// })
+
+// gsap.to("figure:nth-of-type(2)", 1, {
+//   x: 0,
+//   delay: 3
+// })
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝　ここから
+
+// timeline()関数
+// タイムラインのインスタンスを生成させる
+const tl = gsap.timeline()
+
+// インスタンス内でオブジェクトを順番に指定しながらタイムラインを進める
+// 上下二つの箱　一連の横方向への（1秒間で移動する）動き
+tl.to("figure:nth-of-type(1)", 1, {
+  x: "10rem"
+})
+.to("figure:nth-of-type(2)", 1, {
+  x: "10rem",
+  rotation: "180deg"
+})
+
+// 帰りの動き
+.to("figure:nth-of-type(1)", 1, {
+  x: "0rem"
+})
+.to("figure:nth-of-type(2)", 1, {
+  x: "0rem",
+  rotation: "0deg"
+// repeat(-1)のメソッドをつけることで無限の繰り返しができる。
+}).repeat(-1)
+
+
 
 
 // // keyframs属性 => アニメーションを時間軸に沿ってコントロールする    
@@ -55,14 +85,14 @@
 // }).repeat(-1)
 
 
-// keyframs属性　その3
-// keyframs属性にさまざまな動きを『オブジェクト』で記述する。
-// durationをパーセンテージで指定できる。が、『その2』の方が感覚的に動きを把握しやすい。
-gsap.to("figure", 10, {
-  keyframes: {
-    "10%": { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut" },
-    "30%": { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
-    "50%": { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut" },
-    "90%": { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
-  }
-}).repeat(-1)
+// // keyframs属性　その3
+// // keyframs属性にさまざまな動きを『オブジェクト』で記述する。
+// // durationをパーセンテージで指定できる。が、『その2』の方が感覚的に動きを把握しやすい。
+// gsap.to("figure", 10, {
+//   keyframes: {
+//     "10%": { x: "10rem", y: "10rem", rotation: "360deg", ease: "power2.inOut" },
+//     "30%": { x: "20rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
+//     "50%": { x: "10rem", y: "-10rem", rotation: "360deg", ease: "power2.inOut" },
+//     "90%": { x: "0rem", y: "0rem", rotation: "0deg", ease: "power2.inOut" },
+//   }
+// }).repeat(-1)
