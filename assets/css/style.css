@@ -10,37 +10,52 @@ body {
   font-weight: 400;
 }
 
-/* この書き方でもいいけど違う書き方で。。。 */
-/* .container {
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 450px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 600px;
+  width: 100%;
   height: 100vh;
   margin: 0 auto;
-} */
-
-.container {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+  padding: 2rem;
+  background-color: #eee;
 }
 
-/* figure {
-  width: 10rem;
-  height: 10rem;
-  background-color: #777;
+.heading {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
-figure:not(:first-of-type) {
-  margin-top: 7.5rem;
-} */
-
-
-figure {
-  width: 10rem;
-  height: 10rem;
-  background-color: #777;
+.heading::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  content: "";
+  background-color: black;
 }
 
+p {
+  line-height: 1.5;
+}
+
+.line {
+  width: 1px;
+  border: 1px solid #333;
+}
+
+.line:first-of-type {
+  margin-top: 5rem;
+}
+.line:not(:first-of-type) {
+  margin-top: 3rem;
+}
