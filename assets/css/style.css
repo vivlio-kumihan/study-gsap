@@ -11,43 +11,51 @@ body {
 }
 
 .container {
-  /* 230301私の設定 画面のセンターセンターに箱を置く。 */
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 600px;
   width: 100%;
   height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
   background-color: #eee;
-
-  /* display: grid;
-  place-items: center; */
 }
 
-.box {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-40%);
-  width: 20rem;
-  height: 20rem;
-  background-color: #333;
-  /* display: none;
-  opacity: 0; */
-}
-
-figure {
+.heading {
   position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
-figure > figcaption {
+.heading::after {
   position: absolute;
-  top: 5rem;
-  left: -12rem;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  content: "";
+  background-color: black;
+}
 
-  font-size: 3rem;
-  font-family: 'New Tegomin', serif;;
-  text-align: right;
+p {
+  line-height: 1.5;
+}
+
+.line {
+  width: 1px;
+  border: 1px solid #333;
+}
+
+.line:first-of-type {
+  margin-top: 5rem;
+}
+.line:not(:first-of-type) {
+  margin-top: 3rem;
 }
