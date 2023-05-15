@@ -13,7 +13,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   max-width: 600px;
   width: 100%;
@@ -23,39 +23,11 @@ body {
   background-color: #eee;
 }
 
-.heading {
-  position: relative;
-  display: inline-block;
+#line-one {
   width: 100%;
-  font-size: 2rem;
-  font-weight: 900;
-  line-height: 1.2;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-
-.heading::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  content: "";
-  background-color: black;
-}
-
-p {
-  line-height: 1.5;
-}
-
-.line {
-  width: 1px;
   border: 1px solid #333;
 }
 
-.line:first-of-type {
+#line-one:first-of-type {
   margin-top: 5rem;
-}
-.line:not(:first-of-type) {
-  margin-top: 3rem;
 }
