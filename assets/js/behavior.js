@@ -1,21 +1,29 @@
-const line = document.getElementById("line-two")
+const header = document.getElementById("header")
 
-const orgPostion = { x: "0", y: "0" }
+// HTMLCollectionとして２つのspanを収集する。
+const lines = header.children
+const orgPosition = { x: "0", y: "0" }
 
-gsap.set(line, {
-  x: orgPostion.x,
-  y: orgPostion.y
+header.addEventListener("mouseenter", function () {
+  // なんと！　配列からそれぞれの要素へ自動で処理してくれる。
+  gsap.set(lines, {
+    x: orgPosition.x,
+    y: orgPosition.y
+  })
+
+  gsap.fromTo(lines, .7, {
+    x: orgPosition.x,
+    y: orgPosition.y
+  }, {
+    width: "100%",
+    transformOrigin: "top left",
+    ease: "power2.inout"
+  })
 })
 
-gsap.fromTo(line, 2, {
-  x: orgPostion.x,
-  y: orgPostion.y,
-}, {
-  width: "100%",
-  transformOrigin: "top left",
-  // 開始時と終了時の速度が遅くなるため、
-  // 滑らかなアニメーションを実現することができます。
-  // inOutの部分は、アニメーションの始まりと終わりの速度が
-  // 遅くなるように指定しています。
-  ease: "power2.inout"
+header.addEventListener("mouseleave", function () {
+  gsap.to(lines, .7, {
+    width: "0",
+    ease: "power2.inout",
+  })
 })

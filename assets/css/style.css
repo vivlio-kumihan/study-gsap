@@ -23,12 +23,30 @@ body {
   background-color: #eee;
 }
 
-#line-two {
-  width: 0px;
+#header {
+  position: relative;
+  width: 100%;
+  margin: 2rem 0 1rem;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+#header>.line-upper,
+#header>.line-lower {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 0;
   height: 1px;
   background-color: #333;
 }
 
-#line-one:first-of-type {
-  margin-top: 5rem;
+#header>.line-upper {
+  top: -0.5rem;
+}
+
+#header>.line-lower {
+  bottom: -0.6rem;
 }
