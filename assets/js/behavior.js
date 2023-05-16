@@ -1,11 +1,8 @@
 const header = document.getElementById("header")
-
-// HTMLCollectionとして２つのspanを収集する。
 const lines = header.children
 const orgPosition = { x: "0", y: "0" }
 
 header.addEventListener("mouseenter", function () {
-  // なんと！　配列からそれぞれの要素へ自動で処理してくれる。
   gsap.set(lines, {
     x: orgPosition.x,
     y: orgPosition.y
@@ -16,14 +13,17 @@ header.addEventListener("mouseenter", function () {
     y: orgPosition.y
   }, {
     width: "100%",
-    transformOrigin: "top left",
     ease: "power2.inout"
   })
 })
 
-header.addEventListener("mouseleave", function () {
+header.addEventListener("mouseleave", function() {
   gsap.to(lines, .7, {
+    left: "100%",
     width: "0",
     ease: "power2.inout",
+    onComplete: () => {
+      gsap.to(lines, { left: "0" })
+    }
   })
 })
