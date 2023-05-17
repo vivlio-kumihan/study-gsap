@@ -1,29 +1,26 @@
-const header = document.getElementById("header")
-const lines = header.children
+const boxOnes = Array.from(document.querySelectorAll(".box-one"))
 const orgPosition = { x: "0", y: "0" }
 
-header.addEventListener("mouseenter", function () {
-  gsap.set(lines, {
-    x: orgPosition.x,
-    y: orgPosition.y
+boxOnes.forEach(box => {
+  box.addEventListener("mouseenter", function () {
+    gsap.set(boxOnes, {
+      x: orgPosition.x,
+      y: orgPosition.y
+    })
+    
+    gsap.fromTo(boxOnes, 1, {
+      x: orgPosition.x,
+      y: orgPosition.y,
+      // アニメーションの支点　デフォルトは"center cetner"
+      // transformOrigin: "bottom right"
+    }, {
+      scaleX: 0,
+    })
   })
-
-  gsap.fromTo(lines, .7, {
-    x: orgPosition.x,
-    y: orgPosition.y
-  }, {
-    width: "100%",
-    ease: "power2.inout"
-  })
-})
-
-header.addEventListener("mouseleave", function() {
-  gsap.to(lines, .7, {
-    left: "100%",
-    width: "0",
-    ease: "power2.inout",
-    onComplete: () => {
-      gsap.to(lines, { left: "0" })
-    }
+  // これで効くということはインスタンスを覚えているということか？
+  box.addEventListener("mouseleave", function () {
+    gsap.to(boxOnes, 1, {
+      scaleX: 1,
+    })
   })
 })

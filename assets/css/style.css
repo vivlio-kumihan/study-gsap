@@ -13,40 +13,40 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  max-width: 600px;
+  max-width: 1050px;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
   background-color: #eee;
 }
 
-#header {
+article {
   position: relative;
-  width: 100%;
-  margin: 2rem 0 1rem;
-  font-size: 2rem;
-  font-weight: 900;
-  line-height: 1em;
-  text-transform: uppercase;
 }
 
-#header>.line-upper,
-#header>.line-lower {
+.box-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: absolute;
-  left: 0;
-  content: "";
-  width: 0;
-  height: 1px;
-  background-color: #333;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  height: 300px;
+  padding-bottom: 3rem;
+  font-size: 20rem;
+  font-weight: 900;
+  color: #777;
 }
 
-#header>.line-upper {
-  top: -0.5rem;
-}
-
-#header>.line-lower {
-  bottom: -0.6rem;
+.box-one.shadow {
+  top: 15rem;
+  left: 10rem;
+  color: transparent;
+  text-shadow: 0 0 1rem #aaa;
 }
