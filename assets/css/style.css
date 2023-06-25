@@ -1,28 +1,185 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+/* Noto+Sans+JP gothic */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&display=swap");
+/* font-family: "Noto Sans JP", sans-serif; */
+/* Monoton */
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+/* font-family: 'Monoton', cursive; */
 html {
   font-size: 93.75%;
   scroll-behavior: smooth;
   /*  ページ先頭の要素に付ける。戻る位置を調整してくれる。
-      scroll-margin-top: 80px;  */
+  *  scroll-margin-top: 80px  */
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.7;
   color: #555;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+:lang(en) {
+  font-family: "Monoton", cursive;
 }
-.container h1 {
-  font-size: 2rem;
-  line-height: 1.5;
-  font-weight: 900;
-  text-transform: uppercase;
+
+.container {
+  width: min(100%, 900px);
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.circle-one {
+  width: 50vw;
+  height: 50vw;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 7;
+}
+.circle-one .upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+.circle-one .upper::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #ebb604;
+}
+.circle-one .lower {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+.circle-one .lower::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.circle-one .circle-two {
+  width: 30vw;
+  height: 30vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+}
+.circle-one .circle-two .upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+.circle-one .circle-two .upper::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #de4010;
+}
+.circle-one .circle-two .lower {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+.circle-one .circle-two .lower::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #141414;
+}
+
+.square-red {
+  position: absolute;
+  top: calc(25vw + 50px);
+  left: 0;
+  width: 100%;
+  height: calc(100% - (25vw + 50px));
+  background-color: #de4010;
+  z-index: 4;
+}
+
+.square-black-round {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  aspect-ratio: 1;
+  border-radius: 0 50% 0 0;
+  background-color: #141414;
+  z-index: 3;
+}
+
+.square-black-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: #141414;
+  z-index: 2;
+}
+
+.square-black-right {
+  position: absolute;
+  top: calc(25vw + 50px);
+  right: 0;
+  width: 50vw;
+  height: calc(100% - 75vw);
+  background-color: #141414;
+  z-index: 5;
+}
+
+.square-black-round-lower {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  height: 50vw;
+  background-color: #141414;
+  border-radius: 0 0 0 50%;
+  z-index: 6;
+}
+
+.square-yellow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ebb604;
 }/*# sourceMappingURL=style.css.map */
