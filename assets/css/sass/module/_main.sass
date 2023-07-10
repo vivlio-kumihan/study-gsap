@@ -1,80 +1,12 @@
 @use '../forwards' as fw
 .container
-  width: min(100%, 900px)
-  height: 100vh
+  width: min(900px, 100%)
+  // height: 100vh
   margin: 0 auto
-  padding: 0 30px
 
-// 基準となる円の大きさ
-$circle-size: 50vw
-// 縦横の座標
-$top: 50px
-$left: 0
-.circle-one
-  +fw.circleHalfAndHalf($circle-size, fw.$col-yellow, fw.$col-white)
-    position: absolute
-    top: $top
-    left: $left
-    z-index: fw.set_index(circle-one)
-  .circle-two
-    +fw.circleHalfAndHalf(calc($circle-size * 0.6), fw.$col-red, fw.$col-black)
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      z-index: fw.set_index(circle-two)
-
-.square-red
-  position: absolute
-  top: calc($circle-size / 2 + $top)
-  left: $left
-  width: 100%
-  height: calc(100% - ($circle-size / 2 + $top))
-  background-color: fw.$col-red
-  z-index: fw.set_index(square-red)
-
-.square-black-round
-  position: absolute
-  top: 0
-  right: 0
-  width: $circle-size
+.box
+  width: 100px
   aspect-ratio: 1
-  border-radius: 0 50% 0 0
-  background-color: fw.$col-black
-  z-index: fw.set_index(square-black-round)
-
-.square-black-left
-  position: absolute
-  top: 0
-  left: $left
-  width: $circle-size
-  height: 100vh
-  background-color: fw.$col-black
-  z-index: fw.set_index(square-black-left)
-
-.square-black-right
-  position: absolute
-  top: calc($circle-size / 2 + $top)
-  right: 0
-  width: calc(100vw - $circle-size)
-  height: calc(100% - ($circle-size / 2 + $circle-size))
-  background-color: fw.$col-black
-  z-index: fw.set_index(square-black-right)
-
-.square-black-round-lower
-  position: fixed
-  bottom: 0
-  right: 0
-  width: calc(100vw - $circle-size)
-  height: calc(100vw - $circle-size)
-  background-color: fw.$col-black
-  border-radius: 0 0 0 50%
-  z-index: fw.set_index(square-black-round-lower)
-
-.square-yellow
-  position: fixed
-  top: 0
-  left: $left
-  width: 100%
-  height: 100%
-  background-color: fw.$col-yellow
+  background-color: #eee
+  + .box
+    margin-top: 30px
