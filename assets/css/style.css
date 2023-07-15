@@ -22,13 +22,321 @@ body {
   font-family: "Monoton", cursive;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 5%;
+  color: #fff;
+  background-color: #333;
+  z-index: 11;
+  transition: 0.3s;
+}
+header.headerHideBtnAppear {
+  transform: translateY(-100%);
+}
+header h1 {
+  font-family: "Monoton", cursive;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+header ul {
+  margin-top: 0;
+}
+header ul li {
+  display: inline-block;
+}
+header ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+  padding: 50px 0;
+}
+
+.this {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+}
+.this:hover {
+  background-color: #333;
+}
+
+.headerMenuBtn {
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: #999;
+  border-radius: 10%;
+  z-index: 13;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+.headerMenuBtn:hover {
+  background-color: #333;
+}
+.headerMenuBtn.headerHideBtnAppear {
+  visibility: visible;
+  opacity: 1;
+}
+.headerMenuBtn.headerHideBtnAppear a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.headerMenuBtn.headerHideBtnAppear a div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.headerMenuBtn.headerHideBtnAppear a div:nth-of-type(1) {
+  top: 30%;
+}
+.headerMenuBtn.headerHideBtnAppear a div:nth-of-type(2) {
+  top: 50%;
+}
+.headerMenuBtn.headerHideBtnAppear a div:nth-of-type(3) {
+  top: 70%;
+  left: 50%;
+}
+.headerMenuBtn.headerHideBtnAppear a div:hover {
+  color: #fff;
+  background-color: #333;
+}
+.headerMenuBtn.headerHideBtnAppear a div:hover div {
+  background-color: #fff;
+}
+.headerMenuBtn.headerHideBtnAppear a div:hover div:nth-of-type(3) {
+  transform: translateX(-50%);
+  width: 30px;
+}
+
+.headerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 100vh;
+  padding: 100px 0 0 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 12;
+  transition: 0.5s;
+  transform: translateX(100%);
+}
+.headerMenu h1 {
+  font-family: "Monoton", cursive;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.headerMenu ul {
+  margin-top: 30px;
+}
+.headerMenu ul li {
+  display: block;
+}
+.headerMenu ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+  margin-left: 0;
+  padding-bottom: 20px;
+}
+.headerMenu.headerHideBtnAppear {
+  transform: translateX(0);
+}
+
+.content-links-btn {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100px;
+  aspect-ratio: 1;
+  padding-top: 32px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.4s;
+}
+.content-links-btn.toggleButtonMenu {
+  right: 0;
+}
+.content-links-btn div {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  transition: 0.3s;
+}
+.content-links-btn div:nth-of-type(1) {
+  top: 33%;
+}
+.content-links-btn div:nth-of-type(2) {
+  top: 42%;
+}
+.content-links-btn div:nth-of-type(3) {
+  top: 52%;
+  left: 50%;
+  transform: translateX(-25%);
+  width: 20px;
+}
+.content-links-btn:hover {
+  color: #fff;
+}
+.content-links-btn:hover div {
+  background-color: #fff;
+}
+.content-links-btn:hover div:nth-of-type(3) {
+  transform: translateX(-50%);
+  width: 30px;
+}
+.content-links-btn.active {
+  background-color: #fff;
+}
+.content-links-btn.active div {
+  top: 45%;
+  left: 50%;
+  width: 35px;
+}
+.content-links-btn.active div:nth-of-type(1) {
+  transform: translateX(-50%) rotate(45deg);
+}
+.content-links-btn.active div:nth-of-type(2) {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(100%);
+}
+.content-links-btn.active div:nth-of-type(3) {
+  width: 35px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  height: 100vh;
+  color: #fff;
+  transform: translateX(100%);
+  transition: 0.5s;
+  z-index: 10;
+}
+.menu-link.active {
+  transform: translateX(0);
+}
+.menu-link ul:first-of-type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-auto-flow: column;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  width: 85%;
+}
+.menu-link ul:first-of-type li {
+  position: relative;
+  padding: 16px 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  border-bottom: 1px solid #333;
+  transition: 0.5s;
+}
+.menu-link ul:first-of-type li:hover {
+  color: #333;
+  background-color: #fff;
+}
+.menu-link ul:first-of-type li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.menu-link ul:first-of-type li::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+}
+.menu-link .contact {
+  width: 85%;
+  margin-top: 40px;
+  padding: 30px 0;
+  background-image: none;
+  transition: 0.3s;
+}
+.menu-link .contact:hover {
+  background-color: #fff;
+}
+.menu-link .contact:hover p {
+  color: #333;
+}
+.menu-link .contact p {
+  color: #fff;
+}
+.menu-link .contact p::before {
+  position: absolute;
+  top: 15%;
+  left: -25px;
+}
+.menu-link ul:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  padding: 30px 0 0;
+}
+.menu-link ul:last-of-type li:first-of-type .shrinkLine {
+  font-weight: 700;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+  color: #fff;
+  background-color: red;
+}
+
 .container .panel {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 300px 20%;
+  padding: 200px 10%;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -100,7 +408,7 @@ footer {
   bottom: 0;
   left: 0;
   height: 70vh;
-  padding: 100px 30%;
+  padding: 100px 10%;
   font-size: 15px;
   font-weight: 400;
   line-height: 2;

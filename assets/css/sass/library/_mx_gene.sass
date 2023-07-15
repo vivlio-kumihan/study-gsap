@@ -1,7 +1,9 @@
 @use "../variable" as var
 
+// 縦横センター
 // デフォルトの引数なしで縦横センター
-// $topで縦ON、$leftで横ON
+// $topで縦ON 縦方向センター、
+// $leftで横ON　横方向センター
 =positionAbsoluteCTL($top: false, $left: false)
   position: absolute
   @if $top
@@ -14,14 +16,20 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-  
+
+=aBlockWHFull
+  display: block
+  width: 100%
+  height: 100%
+
+// 円を描写する。
 =circle($width: 50vw, $bgColor: #333)
   width: $width
   aspect-ratio: 1
   border-radius: 50%
   background-color: $bgColor
 
-
+// 半円を描写する。
 =circleHalfAndHalf($width: 50vw, $upperCol: #333, $lowerCol: #999)
   width: $width
   height: $width
@@ -60,3 +68,23 @@
       aspect-ratio: 1
       border-radius: 50%
       background-color: $lowerCol
+
+
+=menuContents($ulMarginTop: 0, $liDisplay: inline-block)
+  h1
+    font-family: var.$monoton
+    font-size: 14px
+    font-weight: 900
+    line-height: 1
+    letter-spacing: .25em
+    text-transform: uppercase
+  ul
+    margin-top: $ulMarginTop
+    li
+      display: $liDisplay
+      a
+        display: block
+        width: 100%
+        height: 100%
+        margin-left: 20px
+        @content
