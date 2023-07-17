@@ -1,3 +1,12 @@
+Vue.createApp({
+  data() {
+    return {
+      flag: false
+    }
+  },
+}).mount('#app')
+
+
 // サイドメニューを止めて、メインの読み物をスクロールさせる。
 // サイドとメインの『2つのpin』を用意する。
 // サイドをどこで止めるかを『start: 'top 10%'』で、
@@ -31,4 +40,5 @@ window.addEventListener('resize', () => {
 })
 
 // for headerMenuBtn's 3 div(s)
-document.getElementById('headerMenuBtn').insertAdjacentHTML('afterbegin', '<a><div></div><div></div><div></div></a>')
+// jsを埋め込めなかったのでHTMLに直に書いた。
+// document.getElementById('headerMenuBtn').insertAdjacentHTML('afterbegin', '<div :class="{ headerHideBtnAppear: flag }"></div><div :class="{ headerHideBtnAppear: flag }"></div><div :class="{ headerHideBtnAppear: flag }"></div>')

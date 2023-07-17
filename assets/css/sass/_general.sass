@@ -24,3 +24,19 @@ body
 
 :lang(en)  
   font-family: fw.$monoton
+
+.mask
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background-color: rgba(0, 0, 0, .6)
+  z-index: fw.set-index(mask)
+  transition: .5s
+  visibility: hidden
+  opacity: 0
+  &.headerHideBtnAppear
+    visibility: visible
+    opacity: 1
+

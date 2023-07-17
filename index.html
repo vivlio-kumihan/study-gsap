@@ -10,10 +10,12 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> -->
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
-<body>
+<body id="app">
   <header>
     <h1>header</h1>
     <ul>
@@ -23,8 +25,13 @@
       <li><a href="">menu 04</a></li>
     </ul>
   </header>
-  <button id="headerMenuBtn" class="headerMenuBtn"></button>
-  <div class="headerMenu">
+  <button id="headerMenuBtn" class="headerMenuBtn" @click="flag = !flag">
+    <div :class="{ headerHideBtnAppear: flag }"></div>
+    <div :class="{ headerHideBtnAppear: flag }"></div>
+    <div :class="{ headerHideBtnAppear: flag }"></div>
+  </button>
+  <div class="mask" :class="{ headerHideBtnAppear: flag }" @click="flag = !flag"></div>
+  <div class="headerMenu" :class="{ headerHideBtnAppear: flag }">
     <h1>header</h1>
     <ul>
       <li><a href="">menu 01</a></li>
@@ -34,7 +41,6 @@
     </ul>
   </div>
   <section class="hero">
-    <div class="this"></div>
     site title
   </section>
   <div id="container" class="container">
