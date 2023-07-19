@@ -15,67 +15,25 @@ html {
 body {
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.7;
-  color: #555;
+  color: #333;
 }
 
 :lang(en) {
   font-family: "Monoton", cursive;
 }
 
-.mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 12;
-  transition: 0.5s;
-  visibility: hidden;
-  opacity: 0;
-}
-.mask.headerHideBtnAppear {
-  visibility: visible;
-  opacity: 1;
+.container {
+  width: min(900px, 100%);
+  margin: 0 auto;
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0 5%;
-  color: #fff;
-  background-color: #333;
-  z-index: 11;
-  transition: 0.3s;
-}
-header.headerHideBtnAppear {
-  transform: translateY(-100%);
-}
-header h1 {
-  font-family: "Monoton", cursive;
-  font-size: 14px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-header ul {
-  margin-top: 0;
-}
-header ul li {
-  display: inline-block;
-}
-header ul li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin-left: 20px;
-  padding: 50px 0;
+  height: 90vh;
+  font-size: 4rem;
+  background-color: #eee;
 }
 
 .headerMenuBtn {
@@ -170,86 +128,59 @@ header ul li a {
 }
 
 .hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 90vh;
+  height: 200vh;
+  padding-top: 100px;
   color: #fff;
-  background-color: red;
+  background-color: #aaa;
 }
-
-.container .panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 200px 10%;
-  font-size: 30px;
-  font-weight: bold;
+.hero .box {
+  margin: 0 auto;
+  width: 300px;
+  aspect-ratio: 1;
+  background-color: #333;
+}
+.hero .box.scrub {
+  background-color: #777;
+  opacity: 0;
+}
+.hero .progress {
+  margin: 30px 50px;
+  font-size: 2rem;
   text-align: center;
-  color: #fff;
 }
-.container .panel:last-of-type {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+.hero ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding-top: 300px;
+  overflow: hidden;
 }
-.container .panel p {
-  margin-top: 40px;
-  font-size: 15px;
-  line-height: 2;
-  text-align: justify;
-}
-.container .panel:nth-of-type(1) {
-  background-color: #1c1ca6;
-}
-.container .panel:nth-of-type(2) {
-  background-color: #be2020;
-}
-.container .panel.wrapper.one {
-  display: grid;
-  grid-template-columns: 1.5fr 4fr;
-  align-items: start;
-  gap: 30px;
-}
-.container .panel.wrapper.one ul {
-  text-align: left;
-}
-.container .panel.wrapper.one ul li {
-  font-size: 16px;
-  font-weight: 900;
+.hero ul li {
+  padding: 5px 5px 1px;
+  font-size: 3rem;
   line-height: 1;
-  margin-bottom: 20px;
   text-transform: uppercase;
+  background-color: #fff;
 }
-.container .panel.wrapper.one ul li + li {
-  margin-top: 60px;
+.hero ul li:nth-last-of-type(1) {
+  color: orange;
 }
-.container .panel.wrapper.one ul li ul li {
-  margin: 0 0 10px;
-  padding-left: 30px;
-  text-transform: none;
+.hero ul li:nth-last-of-type(2) {
+  color: #be2020;
 }
-.container .panel.wrapper.one ul li ul li:first-of-type {
-  margin-top: 20px;
+.hero ul li:nth-last-of-type(3) {
+  color: #6ed06e;
 }
-.container .panel.wrapper.one dl.pin {
-  padding-top: 60px;
-  border-top: 1px solid #fff;
+.hero ul li:nth-of-type(1) {
+  transform: translateX(-500%);
 }
-.container .panel.wrapper.one dl dt {
-  margin-bottom: 20px;
-  font-size: 30px;
-  line-height: 1;
+.hero ul li:nth-of-type(2) {
+  transform: translateY(500%);
 }
-.container .panel.wrapper.one dl dd {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
+.hero ul li:nth-of-type(3) {
+  transform: translateX(500%);
 }
 
 footer {

@@ -20,23 +20,11 @@ html
 body
   font-family: fw.$webBase
   line-height: 1.7
-  color: #555
+  color: #333
 
-:lang(en)  
+:lang(en)
   font-family: fw.$monoton
 
-.mask
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100vh
-  background-color: rgba(0, 0, 0, .6)
-  z-index: fw.set-index(mask)
-  transition: .5s
-  visibility: hidden
-  opacity: 0
-  &.headerHideBtnAppear
-    visibility: visible
-    opacity: 1
-
+.container
+  width: min(900px, 100%)
+  margin: 0 auto
