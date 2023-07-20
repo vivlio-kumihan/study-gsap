@@ -20,8 +20,7 @@ body {
   width: 100%;
   font-family: "Anton", sans-serif;
   line-height: 1.5;
-  color: #111;
-  background-color: #b9b3a9;
+  color: #fff;
   transition: 0.3s ease-out;
   overscroll-behavior: none;
 }
@@ -126,79 +125,58 @@ header {
   transform: translateX(0);
 }
 
-.container section.sectionPin {
-  height: 100vh;
+.area {
   overflow: hidden;
-  display: flex;
-  left: 0;
-  background: var(--text-color);
-  color: var(--bg-color);
 }
-.container section.sectionPin .pin-wrap {
-  height: 100vh;
+
+.wrap {
   display: flex;
-  justify-content: flex-start;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 50px 10vw;
+  height: 100vh;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
 }
-.container section.sectionPin .pin-wrap > * {
-  min-width: 60vw;
-  padding: 0 5vw;
+
+.item01 {
+  background-color: #ea0404;
 }
-.container section:first-of-type {
-  color: #bcb8ad;
-  background-color: #032f35;
+
+.item02 {
+  background-color: #b06145;
 }
-.container section:last-of-type {
-  color: #e3857a;
-  background-color: #f1dba7;
+
+.item03 {
+  background-color: #f18d1d;
 }
-.container section:not(#sectionPin) {
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
-  padding: 50px 10vw;
-  margin: auto;
-  place-items: center;
+
+.item04 {
+  background-color: #f8b633;
 }
-.container section img {
-  height: 80vh;
-  width: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+
+.item05 {
+  background-color: #f8f833;
 }
-.container section h1 {
-  position: absolute;
-  top: 10vw;
-  left: 10vw;
-  margin-bottom: 1rem;
-  font-size: 5rem;
-  line-height: 1;
-  font-weight: 800;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-          hyphens: auto;
-  z-index: 4;
+
+.item06 {
+  background-color: #8cc561;
 }
-.container section h2 {
-  max-width: 400px;
-  font-size: 2rem;
+
+.item07 {
+  background-color: #3d6b35;
 }
-.container section h2.credit {
-  font-family: Termina, sans-serif;
+
+.item08 {
+  background-color: #569caa;
 }
-.container section h2.credit a {
-  color: #111;
-}
-.container section p {
-  position: absolute;
-  bottom: 10vw;
-  right: 10vw;
-  width: 200px;
-  line-height: 1.5;
+
+.item09 {
+  background-color: #1631e6;
 }
 
 footer {
