@@ -5,7 +5,10 @@
 /* Monoton */
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 /* font-family: 'Monoton', cursive; */
-html {
+/* Anton */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+/* font-family: 'Anton', sans-serif; */
+:root {
   font-size: 93.75%;
   scroll-behavior: smooth;
   /*  ページ先頭の要素に付ける。戻る位置を調整してくれる。
@@ -13,18 +16,14 @@ html {
 }
 
 body {
-  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.7;
-  color: #333;
-}
-
-:lang(en) {
-  font-family: "Monoton", cursive;
-}
-
-.container {
-  width: min(900px, 100%);
-  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  font-family: "Anton", sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background-color: #b9b3a9;
+  transition: 0.3s ease-out;
+  overscroll-behavior: none;
 }
 
 header {
@@ -127,60 +126,79 @@ header {
   transform: translateX(0);
 }
 
-.hero {
-  width: 100%;
-  height: 200vh;
-  padding-top: 100px;
-  color: #fff;
-  background-color: #aaa;
-}
-.hero .box {
-  margin: 0 auto;
-  width: 300px;
-  aspect-ratio: 1;
-  background-color: #333;
-}
-.hero .box.scrub {
-  background-color: #777;
-  opacity: 0;
-}
-.hero .progress {
-  margin: 30px 50px;
-  font-size: 2rem;
-  text-align: center;
-}
-.hero ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  padding-top: 300px;
+.container section.sectionPin {
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  left: 0;
+  background: var(--text-color);
+  color: var(--bg-color);
 }
-.hero ul li {
-  padding: 5px 5px 1px;
-  font-size: 3rem;
+.container section.sectionPin .pin-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px 10vw;
+}
+.container section.sectionPin .pin-wrap > * {
+  min-width: 60vw;
+  padding: 0 5vw;
+}
+.container section:first-of-type {
+  color: #bcb8ad;
+  background-color: #032f35;
+}
+.container section:last-of-type {
+  color: #e3857a;
+  background-color: #f1dba7;
+}
+.container section:not(#sectionPin) {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 50px 10vw;
+  margin: auto;
+  place-items: center;
+}
+.container section img {
+  height: 80vh;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container section h1 {
+  position: absolute;
+  top: 10vw;
+  left: 10vw;
+  margin-bottom: 1rem;
+  font-size: 5rem;
   line-height: 1;
-  text-transform: uppercase;
-  background-color: #fff;
+  font-weight: 800;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  z-index: 4;
 }
-.hero ul li:nth-last-of-type(1) {
-  color: orange;
+.container section h2 {
+  max-width: 400px;
+  font-size: 2rem;
 }
-.hero ul li:nth-last-of-type(2) {
-  color: #be2020;
+.container section h2.credit {
+  font-family: Termina, sans-serif;
 }
-.hero ul li:nth-last-of-type(3) {
-  color: #6ed06e;
+.container section h2.credit a {
+  color: #111;
 }
-.hero ul li:nth-of-type(1) {
-  transform: translateX(-500%);
-}
-.hero ul li:nth-of-type(2) {
-  transform: translateY(500%);
-}
-.hero ul li:nth-of-type(3) {
-  transform: translateX(500%);
+.container section p {
+  position: absolute;
+  bottom: 10vw;
+  right: 10vw;
+  width: 200px;
+  line-height: 1.5;
 }
 
 footer {

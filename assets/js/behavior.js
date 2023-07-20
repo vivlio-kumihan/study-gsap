@@ -1,77 +1,68 @@
-// gsap.to('.box', 3, {
-//   x: 300,
-//   backgroundColor: 'red',
-//   delay: 1,
-//   // アニメーションがスタートした時点で呼び出したい処理を書く。
-//   onStart: () => console.log('onStart'),
-//   // アニメーションが完了した時点で呼び出したい処理を書く。
-//   onComplete: () => console.log('onComplete'),
-//   // アニメーションが継続している間に呼び続ける処理を書く。
-//   onUpdate: () => console.log('onUpdate'),
-//   // アニメーションが繰り返される時にしたい処理を書く。
-//   onRepeat: () => console.log('onRepeat'),
-//   // アニメーションが繰り返される時にしたい処理を書く。
-//   onReverseComplete: () => console.log('onReverse')
-// })
-// // アニメーションを繰り返す関数
-// .repeat(1)
-// // アニメーションを逆再生させる関数
-// .reverse(1)
+gsap.registerPlugin(ScrollTrigger);
 
-// プログレス・バーの元ネタ
-// 0（％）から100（％）の値を生成する。
-const tween = gsap.to('#box', 3, {
-  x: 300,
-  backgroundColor: 'red',
-  delay: 1,
-  onUpdate: () => {
-    outPutProgress()
-  }
-})
+// div.container要素をインスタンスにする。
+const pageContainer = document.querySelector(".container");
 
-// 生成しているtween（動き）にprogress() 関数を当てると、
-// tweenに同期した0から100の数値が得られる。
-// 得た値を表示させる任意の要素へ投げる。
-function outPutProgress() {
-  const progress = (Math.floor(tween.progress() * 100))
-  document.getElementById('progress').textContent = `${ progress }%`
-}
-// この位置で関数を呼ぶことで、
-// tweenする前に、初期値（0％）を表示させることができる。
-outPutProgress()
+// 次にLocomotiveScrollの初期化をする。
+// SmoothScrollの機能を使用したいので『smooth: true』を設定。
+// 『el』には『SmoothScroll』を作動させたい領域を指定する。
+const scroller = new LocomotiveScroll({
+  el: pageContainer,
+  smooth: true
+});
 
+// LocomotiveScroll内でscrollイベントが走る度に、ScrollTriggerも更新させる。
+scroller.on("scroll", ScrollTrigger.update);
 
-gsap.to('#scrub-box', 3, {
-  opacity: 1,
-  scrollTrigger: {
-    trigger: '#scrub-box',
-    start: 'top 40%',
-    end: 'bottom 60%',
-    scrub: true,
-    markers: true,
-    // 引数に『e（イベント）』を入れると情報が出てくる。
-    // onEnter: () => {
-    //   // console.log(e)
-    //   console.log('onEnter')
-    // },
-    // onEnterBack: () => console.log('onEnterBack'),
-    // 全然反応が違うから注意する。
-    // endがscroll-endより内へ入るたびに反応する
-    // onLeave: () => console.log('onLeave'),
-    // startがscroll-startより内へ入るたびに反応する
-    // onLeaveBack: () => console.log('onLeaveBack')
-    // スクリーンサイズが変更された時に発火する。
-    // onRefresh: () => console.log('onRefresh')
-    // onEnter, onEnterBack / onLeave, onLeaveBackを合わせたもの。つまりトグルスイッチ。
-    // onToggle: () => console.log('onToggle')
-    // onUpdate 有効な使い方ができるコールバック関数
-    // プログレス・バーの元ネタになる。
-    // onUpdate: (e) => console.log(e.progress)
-    // startからendのアニメーション有効範囲で、上下の動きを示す。上: 1、下: -1
-    // onUpdate: (e) => console.log(e.direction)
-    // startからendのアニメーション有効範囲ないにいるかどうかを真偽値で示す。
-    // onUpdate: (e) => console.log(e.isActive)
-    // スクロールの方向とその速さを示す。スクロールに応じた何かをするときに使う。
-    onUpdate: (e) => console.log(e.getVelocity())
-  }
-})
+// 『SmoothScroll』と『LocomotiveScroll』で内部要素の高さを同調する設定
+// 『SmoothScroll』を作動させると『LocomotiveScroll』がスクロールを制御するようになる。
+// 『el』で指定した部分で色々な高さの調整が行われるので、
+// 『ScrollTrigger』でもその値を使用するようにする。
+// 『LocomotiveScroll』を初期化した際のDOM要素と同じものを指定する。
+ScrollTrigger.scrollerProxy(pageContainer, {
+  scrollTop(value) {
+    return arguments.length
+      ? scroller.scrollTo(value, 0, 0)
+      : scroller.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      left: 0,
+      top: 0,
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  },
+  pinType: pageContainer.style.transform ? "transform" : "fixed"
+});
+
+//////////////////////////////////
+window.addEventListener("load", function () {
+  let pinBoxes = document.querySelectorAll(".pin-wrap > *");
+  let pinWrap = document.querySelector(".pin-wrap");
+  let pinWrapWidth = pinWrap.offsetWidth;
+  let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+  // Pinning and horizontal scrolling
+
+  gsap.to(".pin-wrap", {
+    scrollTrigger: {
+      scroller: pageContainer, //locomotive-scroll
+      scrub: true,
+      trigger: "#sectionPin",
+      pin: true,
+      // anticipatePin: 1,
+      start: "top top",
+      end: pinWrapWidth
+    },
+    x: -horizontalScrollLength,
+    ease: "none"
+  });
+
+  // そしてwindowが更新される度に『ScrollTrigger』『LocomotiveScroll』の
+  // 両方を更新するようにする。
+  // 全ての更新が終わり『LocomotiveScroll』で高さの調整が終わった後、
+  // 最後に『ScrollTrigger』を『refresh』する。
+  ScrollTrigger.addEventListener("refresh", () => scroller.update()); //locomotive-scroll
+  ScrollTrigger.refresh();
+});
