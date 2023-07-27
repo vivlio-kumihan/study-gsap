@@ -1,19 +1,45 @@
 @use '../forwards' as fw
 
-.area
-  overflow: hidden
-.wrap
-  display: flex
-.item
-  display: flex
-  justify-content: center
-  align-items: center
+main
+  display: grid
+  place-items: center
   height: 100vh
-  font-size: 50px
-  font-weight: 700
-  color: #fff
+  .menuWrapper
+    position: relative
+    .menu
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 120px
+      height: 120px
+      border-radius: 50%
+      border: 1px solid currentColor
+      cursor: pointer
+      span
+        position: absolute
+        font-size: 14px
+        letter-spacing: .2em
+        color: #777
+        text-transform: uppercase
+        &#close
+          opacity: 0
+    .menuList
+      li
+        position: absolute
+        transform: translate(-50%, -50%)
+        // visibility: hidden
+        // opacity: 0
+        a 
+          display: grid
+          place-items: center
+          width: 50px
+          height: 50px
+          font-size: 20px
+          color: #777
+          border-radius: 50%
+          border: 1px dotted currentColor
+          box-shadow: 0 0 10px rgba(0, 0, 0, .5)
 
-$colors: #ea0404, #b06145, #f18d1d, #f8b633, #f8f833, #8cc561, #3d6b35, #569caa, #1631e6
-@each $col in $colors 
-  .item0#{ index($colors, $col) }
-    background-color: #{ $col }
+
+
+    

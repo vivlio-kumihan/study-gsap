@@ -19,9 +19,8 @@ body {
   max-width: 100%;
   width: 100%;
   font-family: "Anton", sans-serif;
-  line-height: 1.5;
-  color: #fff;
-  transition: 0.3s ease-out;
+  line-height: 1;
+  color: #333;
   overscroll-behavior: none;
 }
 
@@ -125,58 +124,48 @@ header {
   transform: translateX(0);
 }
 
-.area {
-  overflow: hidden;
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
-
-.wrap {
-  display: flex;
+main .menuWrapper {
+  position: relative;
 }
-
-.item {
+main .menuWrapper .menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-size: 50px;
-  font-weight: 700;
-  color: #fff;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  cursor: pointer;
 }
-
-.item01 {
-  background-color: #ea0404;
+main .menuWrapper .menu span {
+  position: absolute;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: #777;
+  text-transform: uppercase;
 }
-
-.item02 {
-  background-color: #b06145;
+main .menuWrapper .menu span#close {
+  opacity: 0;
 }
-
-.item03 {
-  background-color: #f18d1d;
+main .menuWrapper .menuList li {
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
-
-.item04 {
-  background-color: #f8b633;
-}
-
-.item05 {
-  background-color: #f8f833;
-}
-
-.item06 {
-  background-color: #8cc561;
-}
-
-.item07 {
-  background-color: #3d6b35;
-}
-
-.item08 {
-  background-color: #569caa;
-}
-
-.item09 {
-  background-color: #1631e6;
+main .menuWrapper .menuList li a {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  color: #777;
+  border-radius: 50%;
+  border: 1px dotted currentColor;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 footer {
